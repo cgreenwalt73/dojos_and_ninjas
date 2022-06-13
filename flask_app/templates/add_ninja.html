@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <title>Add New Ninja!</title>
+</head>
+<body class="bg-dark text-white">
+    <p class="display-1 text-center">New Ninja</p>
+    <div class="d-flex justify-content-center">
+        <form action="/new_ninja" method="post" class="d-flex flex-xl-column align-items-end">
+            <label>
+                First Name:
+                <input type="text" name="first_name">
+            </label>
+            <label>
+                Last Name:
+                <input type="text" name="last_name">
+            </label>
+            <label>
+                Age:
+                <input type="number" name="age">
+            </label>
+            <label>
+                Dojo Location:
+                <select name="dojo_id">
+                    {% for location in dojo_locations: %}
+                        <option value={{location.id}}>{{location.name}}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            <button class="btn bg-secondary text-info">Enroll></button>
+        </form>
+    </div>
+</body>
+</html>
